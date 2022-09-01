@@ -8,8 +8,7 @@ class Command(Tree):
     manager = cs.Struct(buffer=cs.GreedyBytes)
 
     def setup_manager(self, manager):
-        return manager
-#        return manager.compile()
+        return manager.compile()
 
     def update(self):
         super().update()
@@ -159,12 +158,3 @@ class Sessions(Protocol):
 
 
 Sessions.register(SessionCommands)
-
-
-if __name__ == '__main__':
-    path = (
-        r'C:\Users\przem\AppData\Local\Google\Chrome\User Data\Default\Sessions'
-        r'\Session_13306506430376513'
-    )
-    cmds = Sessions().open(path, 'rb').commands
-    print(cmds)
